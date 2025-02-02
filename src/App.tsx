@@ -140,61 +140,61 @@ function App() {
               <span className="text-blue-400 group-hover:text-white transition-colors"> Selim</span>
               <span className="group-hover:text-blue-400 transition-colors">Portfolio</span>
             </div>
-            <div className="space-x-6">
-      <button
-        onClick={handleAboutClick}
-        className={`capitalize relative ${
-          activeSection === 'about'
-            ? 'text-blue-400'
-            : 'text-gray-300 hover:text-white'
-        } transition-colors`}
-      >
-        about
-        {activeSection === 'about' && (
-          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-        )}
-      </button>
-      <button
-        onClick={handleExperienceClick}
-        className={`capitalize relative ${
-          activeSection === 'experience'
-            ? 'text-blue-400'
-            : 'text-gray-300 hover:text-white'
-        } transition-colors`}
-      >
-        experience
-        {activeSection === 'experience' && (
-          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-        )}
-      </button>
-      <button
-      
-        onClick={handleProjectClick}
-        className={`capitalize relative ${
-          activeSection === 'projects'
-            ? 'text-blue-400'
-            : 'text-gray-300 hover:text-white'
-        } transition-colors`}
-      >
-        projects
-        {activeSection === 'projects' && (
-          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-        )}
-      </button>
-      <button
-        onClick={handleContactClick}
-        className={`capitalize relative ${
-          activeSection === 'contact'
-            ? 'text-blue-400'
-            : 'text-gray-300 hover:text-white'
-        } transition-colors`}
-      >
-        contact
-        {activeSection === 'contact' && (
-          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-        )}
-      </button>
-    </div>
+            <div className="space-x-6 flex flex-wrap justify-center sm:flex-col sm:space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+  <button
+    onClick={handleAboutClick}
+    className={`capitalize relative ${
+      activeSection === 'about'
+        ? 'text-blue-400'
+        : 'text-gray-300 hover:text-white'
+    } transition-colors`}
+  >
+    about
+    {activeSection === 'about' && (
+      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
+    )}
+  </button>
+  <button
+    onClick={handleExperienceClick}
+    className={`capitalize relative ${
+      activeSection === 'experience'
+        ? 'text-blue-400'
+        : 'text-gray-300 hover:text-white'
+    } transition-colors`}
+  >
+    experience
+    {activeSection === 'experience' && (
+      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
+    )}
+  </button>
+  <button
+    onClick={handleProjectClick}
+    className={`capitalize relative ${
+      activeSection === 'projects'
+        ? 'text-blue-400'
+        : 'text-gray-300 hover:text-white'
+    } transition-colors`}
+  >
+    projects
+    {activeSection === 'projects' && (
+      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
+    )}
+  </button>
+  <button
+    onClick={handleContactClick}
+    className={`capitalize relative ${
+      activeSection === 'contact'
+        ? 'text-blue-400'
+        : 'text-gray-300 hover:text-white'
+    } transition-colors`}
+  >
+    contact
+    {activeSection === 'contact' && (
+      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
+    )}
+  </button>
+</div>
+
           </div>
         </nav>
       </header>
