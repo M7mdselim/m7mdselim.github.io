@@ -299,7 +299,7 @@ function App() {
               </div>
               <h3 className="text-2xl font-semibold mb-4">Frontend Development</h3>
               <p className="text-gray-300 leading-relaxed">
-                Creating responsive and interactive web applications using React, MUI,HTML,CSS,Node.js and modern web technologies.
+                Creating responsive and interactive web applications using React, MUI , HTML , CSS , Node.js and modern web technologies.
               </p>
             </div>
             <div className="group bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all hover:-translate-y-2">
@@ -323,8 +323,9 @@ function App() {
     <h2 className="text-4xl font-bold mb-16 text-center">Programming Skills</h2>
     <div className="grid md:grid-cols-3 gap-8">
       {[
-        { name: "Python", level: "Advanced", icon: Code2 },
-        { name: "HTML,CSS,JS", level: "Advanced", icon: Terminal },
+        { name: "Python", level: "Advanced", icon: Code2 },        
+        { name: "HTML , CSS , JS ", level: "Advanced", icon: Terminal },
+        { name: "React Native", level: "Intermediate", icon: Code2 },
         { name: "C#", level: "Intermediate", icon: Monitor },
         { name: "SQL", level: "Intermediate", icon: Code2 },
         { name: "Java", level: "Beginner", icon: Code2 },
@@ -345,7 +346,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-16 text-center">Featured Projects</h2>
           <div className="flex justify-center space-x-4 mb-12">
-            {['all', 'ai', 'frontend', 'desktop'].map((category) => (
+            {['all', 'AI', 'frontend', 'desktop'].map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
