@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 
 import { Facebook, Instagram, Menu, X } from "lucide-react"; // Import icons if not already
 import { 
