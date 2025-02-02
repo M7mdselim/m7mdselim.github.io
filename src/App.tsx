@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone } from 'lucide-react';
+import { Menu, X } from "lucide-react"; // Import icons if not already
 import { 
   Brain, 
   Layout, 
@@ -71,6 +72,8 @@ function App() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false);
+
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -130,74 +133,82 @@ function App() {
 
   return (
     <div id = "about" className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      {/* Header/Navigation */}
-      <header className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-      }`}>
-        <nav className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold group" onClick={handleAboutClick}>
-              <span className="text-blue-400 group-hover:text-white transition-colors"> Selim</span>
-              <span className="group-hover:text-blue-400 transition-colors">Portfolio</span>
-            </div>
-            <div className="space-x-6 flex flex-wrap justify-center sm:flex-col sm:space-y-4 md:flex-row md:space-y-0 md:space-x-6">
-  <button
-    onClick={handleAboutClick}
-    className={`capitalize relative ${
-      activeSection === 'about'
-        ? 'text-blue-400'
-        : 'text-gray-300 hover:text-white'
-    } transition-colors`}
-  >
-    about
-    {activeSection === 'about' && (
-      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-    )}
-  </button>
-  <button
-    onClick={handleExperienceClick}
-    className={`capitalize relative ${
-      activeSection === 'experience'
-        ? 'text-blue-400'
-        : 'text-gray-300 hover:text-white'
-    } transition-colors`}
-  >
-    experience
-    {activeSection === 'experience' && (
-      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-    )}
-  </button>
-  <button
-    onClick={handleProjectClick}
-    className={`capitalize relative ${
-      activeSection === 'projects'
-        ? 'text-blue-400'
-        : 'text-gray-300 hover:text-white'
-    } transition-colors`}
-  >
-    projects
-    {activeSection === 'projects' && (
-      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-    )}
-  </button>
-  <button
-    onClick={handleContactClick}
-    className={`capitalize relative ${
-      activeSection === 'contact'
-        ? 'text-blue-400'
-        : 'text-gray-300 hover:text-white'
-    } transition-colors`}
-  >
-    contact
-    {activeSection === 'contact' && (
-      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 rounded-full" />
-    )}
-  </button>
-</div>
+    {/* Header/Navigation */}
+<header
+  className={`fixed w-full z-50 transition-all duration-300 ${
+    isScrolled ? "bg-gray-900/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+  }`}
+>
+  <nav className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    
+    {/* Logo */}
+    <div className="text-2xl font-bold group cursor-pointer" onClick={handleAboutClick}>
+      <span className="text-blue-400 group-hover:text-white transition-colors"> Selim</span>
+      <span className="group-hover:text-blue-400 transition-colors">Portfolio</span>
+    </div>
 
-          </div>
-        </nav>
-      </header>
+    {/* Mobile Menu Button */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="md:hidden text-white focus:outline-none"
+    >
+      {menuOpen ? <X size={28} /> : <Menu size={28} />}
+    </button>
+
+    {/* Navigation Links */}
+    <div
+      className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent transition-all duration-300 ${
+        menuOpen ? "block" : "hidden"
+      } md:flex md:space-x-6 items-center text-center md:text-left`}
+    >
+      <button
+        onClick={() => {
+          handleAboutClick();
+          setMenuOpen(false);
+        }}
+        className={`capitalize block md:inline-block py-3 md:py-0 ${
+          activeSection === "about" ? "text-blue-400" : "text-gray-300 hover:text-white"
+        } transition-colors`}
+      >
+        about
+      </button>
+      <button
+        onClick={() => {
+          handleExperienceClick();
+          setMenuOpen(false);
+        }}
+        className={`capitalize block md:inline-block py-3 md:py-0 ${
+          activeSection === "experience" ? "text-blue-400" : "text-gray-300 hover:text-white"
+        } transition-colors`}
+      >
+        experience
+      </button>
+      <button
+        onClick={() => {
+          handleProjectClick();
+          setMenuOpen(false);
+        }}
+        className={`capitalize block md:inline-block py-3 md:py-0 ${
+          activeSection === "projects" ? "text-blue-400" : "text-gray-300 hover:text-white"
+        } transition-colors`}
+      >
+        projects
+      </button>
+      <button
+        onClick={() => {
+          handleContactClick();
+          setMenuOpen(false);
+        }}
+        className={`capitalize block md:inline-block py-3 md:py-0 ${
+          activeSection === "contact" ? "text-blue-400" : "text-gray-300 hover:text-white"
+        } transition-colors`}
+      >
+        contact
+      </button>
+    </div>
+  </nav>
+</header>
+
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center pt-16 px-4 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-no-repeat">
