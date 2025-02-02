@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Phone } from 'lucide-react';
-import { Menu, X } from "lucide-react"; // Import icons if not already
+
+import { Facebook, Instagram, Menu, X } from "lucide-react"; // Import icons if not already
 import { 
   Brain, 
   Layout, 
@@ -19,6 +19,7 @@ import {
 import { Link } from 'react-router-dom';
 import { supabase } from './lib/supabase';
 import type { Project } from './types/project';
+import { FaWhatsapp } from "react-icons/fa";
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -468,16 +469,16 @@ function App() {
             <div className="p-3 bg-gray-800 rounded-lg group-hover:bg-blue-400/10 transition-colors">
               <Mail size={24} className="group-hover:text-blue-400 transition-colors" />
             </div>
-            <span>MohammedSaleem330@Gmail.com</span>
+            <span>mohammedsaleem330@gmail.com</span>
           </a>
 
           <a 
  
   className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors group"
 >
-  <div className="p-3 bg-gray-800 rounded-lg group-hover:bg-blue-400/10 transition-colors">
-    <Phone size={24} className="group-hover:text-blue-400 transition-colors" />
-  </div>
+<div className="p-3 bg-gray-800 rounded-lg group-hover:bg-blue-400/10 transition-colors">
+  <FaWhatsapp size={24} className="group-hover:text-blue-400 transition-colors" />
+</div>
   <span>01155003537</span>
 </a>
           <a 
@@ -561,25 +562,31 @@ function App() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400">
-              © 2025 Mohammed Selim. All rights reserved.
-            </div>
-            <div className="flex space-x-6">
-              <a href="https://github.com/M7mdSelim" target="_blank" rel="noopener noreferrer" className="group">
-                <Github className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a href="https://www.linkedin.com/in/mohammed-selim-1673021a1/" target="_blank" rel="noopener noreferrer" className="group">
-                <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a href="mailto:MohammedSaleem330@Gmail.com" className="group">
-                <Mail className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      <div className="text-gray-400">
+        © 2025 Mohammed Selim. All rights reserved.
+      </div>
+      <div className="flex space-x-6">
+        <a href="https://github.com/M7mdSelim" target="_blank" rel="noopener noreferrer" className="group">
+          <Github className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+        <a href="https://www.linkedin.com/in/mohammed-selim-1673021a1/" target="_blank" rel="noopener noreferrer" className="group">
+          <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+        <a href="mailto:MohammedSaleem330@Gmail.com" className="group">
+          <Mail className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+        <a href="https://www.instagram.com/muhamedselim_/" target="_blank" rel="noopener noreferrer" className="group">
+          <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100006098884315" target="_blank" rel="noopener noreferrer" className="group">
+          <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
