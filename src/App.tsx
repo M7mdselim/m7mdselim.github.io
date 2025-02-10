@@ -22,6 +22,7 @@
   import type { Project } from './types/project';
   import { FaWhatsapp } from "react-icons/fa";
 
+
   function App() {
     const [activeSection, setActiveSection] = useState('about');
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -219,7 +220,7 @@
 
         {/* Hero Section */}
         <section className="min-h-screen flex items-center pt-16 px-4 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-no-repeat">
-        <div className="absolute inset-0 h-[970px] md:h-full bg-gray-900/80 backdrop-blur-sm">  </div>
+        <div className="absolute inset-0 h-[990px] md:h-full bg-gray-900/80 backdrop-blur-sm">  </div>
           <div className="max-w-6xl mx-auto relative">
             
             <div className="flex flex-col items-start space-y-6">
@@ -238,7 +239,7 @@
     {/* Profile Image (Above on Mobile, Right on Larger Screens) */}
     <div className="flex-shrink-0 mb-6 md:mb-0 md:ml-8 order-first md:order-last">
       <img
-        src="/photo.jpg" // Replace with your actual image URL
+        src="https://swgmyybkpqjlkiiecxvc.supabase.co/storage/v1/object/sign/PortofolioBucket/profile.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJQb3J0b2ZvbGlvQnVja2V0L3Byb2ZpbGUuanBnIiwiaWF0IjoxNzM4NzczNzA5LCJleHAiOjE4OTY0NTM3MDl9.Lnq5y9U5-EMHbntq6tOfY8CNJ7DBYHUlIZJKCFYPIlk" // Replace with your actual image URL
         alt="Mohammed Selim"
         className="w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-blue-400 shadow-lg"
       />
@@ -346,7 +347,7 @@
         {[
           { name: "Python", level: "Advanced", icon: Code2 },        
           { name: "HTML , CSS , JS ", level: "Advanced", icon: Terminal },
-          { name: "React Native", level: "Intermediate", icon: Code2 },
+          { name: "React js", level: "Intermediate", icon: Code2 },
           { name: "C#", level: "Intermediate", icon: Monitor },
           { name: "SQL", level: "Intermediate", icon: Code2 },
           { name: "Java", level: "Beginner", icon: Code2 },
@@ -388,9 +389,9 @@
             ) : (
               <div className="grid md:grid-cols-2 gap-8">
                 {filteredProjects.map((project) => (
-                  <Link 
-                    key={project.id}
-                    to={`/project/${project.id}`}
+                <Link 
+                      key={project.id}
+                      to={`/project/${project.id}`}
                     className={`group relative bg-gray-800/50 rounded-xl overflow-hidden transition-all duration-300 hover:ring-2 hover:ring-blue-400`}
                   >
                     <div className="relative h-48">

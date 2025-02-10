@@ -65,7 +65,7 @@ export default function ProjectDetails() {
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent" />
         </div>
