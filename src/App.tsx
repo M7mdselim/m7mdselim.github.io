@@ -347,7 +347,7 @@
         {[
           { name: "Python", level: "Advanced", icon: Code2 },        
           { name: "HTML , CSS , JS ", level: "Advanced", icon: Terminal },
-          { name: "React js", level: "Intermediate", icon: Code2 },
+          { name: "React.js", level: "Intermediate", icon: Code2 },
           { name: "C#", level: "Intermediate", icon: Monitor },
           { name: "SQL", level: "Intermediate", icon: Code2 },
           { name: "Java", level: "Beginner", icon: Code2 },
