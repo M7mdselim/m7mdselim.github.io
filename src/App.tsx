@@ -228,7 +228,7 @@
               <div className="inline-block">
                 
                 <span className="text-blue-400 text-lg font-medium px-4 py-2 border border-blue-400/30 rounded-full">
-                  Software Enginner
+                  Software Engineer
                 </span>
 
                 
@@ -448,7 +448,7 @@
                 <div className="absolute w-4 h-4 bg-blue-400 rounded-full -left-[9px] top-0 group-hover:scale-150 transition-transform" />
                 <div className="mb-1 text-blue-400 font-medium">2024 - 2025</div>
                 <h3 className="text-2xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
-                  IT Specialist and Technical Support - Police Club Dareldyafa (Military Duties)
+                  Software Engineer and Technical Support - Police Club Dareldyafa (Military Duties)
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
                 Developed and deployed 6 Windows application forms to streamline internal processes. Provided technical support, maintained IT infrastructure, and optimized system performance within a structured military environment.
