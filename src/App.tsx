@@ -28,8 +28,9 @@
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [isScrolled, setIsScrolled] = useState(false);
   
-    const [projects, setProjects] = useState<Project[]>([]);
-    const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<Array<{ id: string; name: string; slug: string }>>([]);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -39,25 +40,34 @@
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    useEffect(() => {
-      async function fetchProjects() {
-        try {
-          const { data, error } = await supabase
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [projectsResult, categoriesResult] = await Promise.all([
+          supabase
             .from('projects')
             .select('*')
-            .order('created_at', { ascending: false });
+            .order('created_at', { ascending: false }),
+          supabase
+            .from('categories')
+            .select('*')
+            .order('name', { ascending: true })
+        ]);
 
-          if (error) throw error;
-          setProjects(data || []);
-        } catch (error) {
-          console.error('Error fetching projects:', error);
-        } finally {
-          setLoading(false);
-        }
+        if (projectsResult.error) throw projectsResult.error;
+        if (categoriesResult.error) throw categoriesResult.error;
+
+        setProjects(projectsResult.data || []);
+        setCategories(categoriesResult.data || []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
+    }
 
-      fetchProjects();
-    }, []);
+    fetchData();
+  }, []);
 
     const stats = [
       { icon: Award, label: "Degree", value: "Bachelor's of Computer Science" },
@@ -80,7 +90,7 @@
       const [menuOpen, setMenuOpen] = useState(false);
 
     
-      const handleSubmit = (e) => {
+      const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
     
         // Encode the message for the WhatsApp URL
@@ -366,22 +376,32 @@
         {/* Projects Section */}
         <section id="Projects" className="py-20">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-16 text-center">Featured Projects</h2>
-            <div className="flex justify-center space-x-4 mb-12">
-              {['all', 'AI', 'frontend', 'desktop'].map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 rounded-full transition-all ${
-                    selectedCategory === category
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                  }`}
-                >
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </button>
-              ))}
-            </div>
+          <h2 className="text-4xl font-bold mb-16 text-center">Featured Projects</h2>
+          <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-6 py-2 rounded-full transition-all ${
+                selectedCategory === 'all'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              All
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.slug)}
+                className={`px-6 py-2 rounded-full transition-all ${
+                  selectedCategory === category.slug
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
             {loading ? (
               <div className="flex justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-400"></div>
@@ -592,8 +612,11 @@
         <footer className="py-8 border-t border-gray-800">
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <div className="text-gray-400">
-          © 2025 Mohammed Selim. All rights reserved.
+        <div className="text-gray-400 flex items-center space-x-4">
+          <span>© 2025 Mohammed Selim. All rights reserved.</span>
+          <Link to="/admin/login" className="text-gray-600 hover:text-gray-400 text-xs">
+            Admin
+          </Link>
         </div>
         <div className="flex space-x-6">
           <a href="https://github.com/M7mdSelim" target="_blank" rel="noopener noreferrer" className="group">
