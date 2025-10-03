@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "postbuild": "vite build && copy dist\\index.html dist\\404.html",
-
+    "postbuild": "node scripts/copy404.js",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
