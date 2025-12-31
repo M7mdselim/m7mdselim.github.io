@@ -282,18 +282,18 @@ export default function AdminDashboard() {
 
   if (loading || !isAdmin) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-400"></div>
+      <div className="min-h-screen bg-[#0a0f1a] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-[#0a0f1a] text-white">
       {/* Header */}
-      <header className="bg-gray-800 border-b border-gray-700">
+      <header className="bg-[#111827] border-b border-gray-700/50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-blue-400">Admin Dashboard</h1>
+          <h1 className="text-2xl font-bold text-cyan-400">Admin Dashboard</h1>
           <button
             onClick={handleLogout}
             className="flex items-center space-x-2 px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
@@ -313,14 +313,14 @@ export default function AdminDashboard() {
               setEditingProject(null);
               resetForm();
             }}
-            className="flex items-center space-x-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors"
+            className="flex items-center space-x-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg transition-colors"
           >
             <Plus size={20} />
             <span>Add Project</span>
           </button>
           <button
             onClick={() => setShowCategoryForm(true)}
-            className="flex items-center space-x-2 px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
+            className="flex items-center space-x-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg transition-colors"
           >
             <FolderPlus size={20} />
             <span>Add Category</span>
@@ -329,18 +329,18 @@ export default function AdminDashboard() {
 
         {/* Categories Section */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Categories</h2>
+          <h2 className="text-xl font-semibold mb-4 text-white">Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((cat) => (
-              <div key={cat.id} className="bg-gray-800 p-4 rounded-lg flex flex-col">
+              <div key={cat.id} className="bg-[#111827] border border-gray-700/50 p-4 rounded-lg flex flex-col">
                 <div className="flex-1">
-                  <p className="font-medium">{cat.name}</p>
+                  <p className="font-medium text-white">{cat.name}</p>
                   <p className="text-sm text-gray-400">{cat.slug}</p>
                 </div>
                 <div className="flex space-x-2 mt-3">
                   <button
                     onClick={() => handleEditCategory(cat)}
-                    className="p-1.5 bg-blue-500 hover:bg-blue-600 rounded transition-colors"
+                    className="p-1.5 bg-cyan-500 hover:bg-cyan-600 rounded transition-colors"
                   >
                     <Edit size={14} />
                   </button>
@@ -358,33 +358,33 @@ export default function AdminDashboard() {
 
         {/* Projects Table */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Projects ({projects.length})</h2>
-          <div className="bg-gray-800 rounded-lg overflow-hidden">
+          <h2 className="text-xl font-semibold mb-4 text-white">Projects ({projects.length})</h2>
+          <div className="bg-[#111827] border border-gray-700/50 rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-700">
+                <thead className="bg-[#1f2937]">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-semibold">Title</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold">Category</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold">Stars</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold">Actions</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-white">Title</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-white">Category</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-white">Stars</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-white">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-700">
+                <tbody className="divide-y divide-gray-700/50">
                   {projects.map((project) => (
-                    <tr key={project.id} className="hover:bg-gray-750">
-                      <td className="px-6 py-4">{project.title}</td>
+                    <tr key={project.id} className="hover:bg-[#1f2937]/50">
+                      <td className="px-6 py-4 text-white">{project.title}</td>
                       <td className="px-6 py-4">
-                        <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">
+                        <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">
                           {project.category}
                         </span>
                       </td>
-                      <td className="px-6 py-4">{project.stars}</td>
+                      <td className="px-6 py-4 text-white">{project.stars}</td>
                       <td className="px-6 py-4">
                         <div className="flex space-x-2">
                           <button
                             onClick={() => handleEditProject(project)}
-                            className="p-2 bg-blue-500 hover:bg-blue-600 rounded transition-colors"
+                            className="p-2 bg-cyan-500 hover:bg-cyan-600 rounded transition-colors"
                           >
                             <Edit size={16} />
                           </button>
@@ -407,11 +407,11 @@ export default function AdminDashboard() {
 
       {/* Project Form Modal */}
       {showProjectForm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+          <div className="bg-[#111827] border border-gray-700/50 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold text-white">
                   {editingProject ? 'Edit Project' : 'Add New Project'}
                 </h2>
                 <button
@@ -428,45 +428,45 @@ export default function AdminDashboard() {
 
               <form onSubmit={handleSubmitProject} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Title</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Title</label>
                   <input
                     type="text"
                     required
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Description</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Description</label>
                   <textarea
                     required
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                     rows={3}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Long Description</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Long Description</label>
                   <textarea
                     required
                     value={formData.long_description}
                     onChange={(e) => setFormData({ ...formData, long_description: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                     rows={5}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Category</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Category</label>
                   <select
                     required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   >
                     <option value="">Select a category</option>
                     {categories.filter(cat => cat.slug !== 'all').map((cat) => (
@@ -476,21 +476,21 @@ export default function AdminDashboard() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Main Image URL</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Main Image URL</label>
                   <input
                     type="url"
                     required
                     value={formData.image}
                     onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Additional Images</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Additional Images</label>
                   <div className="space-y-3">
                     <div className="flex items-center justify-center w-full">
-                      <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-700 border-dashed rounded-lg cursor-pointer bg-gray-900 hover:bg-gray-800 transition-colors">
+                      <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-700 border-dashed rounded-lg cursor-pointer bg-[#0a0f1a] hover:bg-[#111827] transition-colors">
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                           <Upload className="w-8 h-8 mb-2 text-gray-400" />
                           <p className="mb-2 text-sm text-gray-400">
@@ -525,7 +525,7 @@ export default function AdminDashboard() {
                               <X size={14} />
                             </button>
                             {index === 0 && (
-                              <span className="absolute bottom-1 left-1 px-2 py-0.5 bg-blue-500 text-xs rounded">
+                              <span className="absolute bottom-1 left-1 px-2 py-0.5 bg-cyan-500 text-xs rounded text-white">
                                 Primary
                               </span>
                             )}
@@ -536,53 +536,54 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
-              <div>
-  <label className="block text-sm font-medium mb-2">Tags (comma-separated)</label>
-  <input
-    type="text"
-    value={formData.tags}
-    onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-    placeholder="React, TypeScript, Node.js"
-    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
-  />
-</div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-white">Tags (comma-separated)</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.tags}
+                    onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+                    placeholder="React, TypeScript, Node.js"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white placeholder-gray-500"
+                  />
+                </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Stars</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Stars</label>
                   <input
                     type="number"
                     required
                     min="0"
                     value={formData.stars}
                     onChange={(e) => setFormData({ ...formData, stars: parseInt(e.target.value) })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">GitHub URL (optional)</label>
+                  <label className="block text-sm font-medium mb-2 text-white">GitHub URL (optional)</label>
                   <input
                     type="url"
                     value={formData.github_url}
                     onChange={(e) => setFormData({ ...formData, github_url: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Live URL (optional)</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Live URL (optional)</label>
                   <input
                     type="url"
                     value={formData.live_url}
                     onChange={(e) => setFormData({ ...formData, live_url: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={uploadingImages}
-                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg transition-colors"
+                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg transition-colors text-white"
                 >
                   {uploadingImages ? (
                     <>
@@ -604,11 +605,11 @@ export default function AdminDashboard() {
 
       {/* Category Form Modal */}
       {showCategoryForm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-gray-800 rounded-lg max-w-md w-full">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+          <div className="bg-[#111827] border border-gray-700/50 rounded-lg max-w-md w-full">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold text-white">
                   {editingCategory ? 'Edit Category' : 'Add New Category'}
                 </h2>
                 <button
@@ -625,31 +626,31 @@ export default function AdminDashboard() {
 
               <form onSubmit={handleSubmitCategory} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Category Name</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Category Name</label>
                   <input
                     type="text"
                     required
                     value={newCategory.name}
                     onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Slug (URL-friendly)</label>
+                  <label className="block text-sm font-medium mb-2 text-white">Slug (URL-friendly)</label>
                   <input
                     type="text"
                     required
                     value={newCategory.slug}
                     onChange={(e) => setNewCategory({ ...newCategory, slug: e.target.value.toLowerCase() })}
                     placeholder="e.g., mobile-apps"
-                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-2 bg-[#0a0f1a] border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-white placeholder-gray-500"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
+                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg transition-colors text-white"
                 >
                   <Save size={20} />
                   <span>{editingCategory ? 'Update Category' : 'Create Category'}</span>
